@@ -6,7 +6,9 @@ I like to have my Python programs compiled, when they are in the field, and the 
 
 ## APPROACH
 
-Modules can be IMPORTed and called from BOOT and MAIN. These modules can be compiled even though BOOT and MAIN are not. This is straighforward but managing shared GLOBAL variables between BOOT and MAIN when using IMPORTED modules presented a bit of a challenge. For those who do not know, GLOBAL variables are shared between BOOT and MAIN in Micropython which allows data to be passed from one to the other. An example is IP address if BOOT makes the WiFi connection. The challenge is that GLOBAL variables are not accessble to IMPORTed modules. This means they beed to be passed and returned in the calls.
+Micropython programs can be compiled using [MPY_CROSS](https://pypi.org/project/mpy-cross/). This is straightforward and I will not go into detail
+
+Modules can be IMPORTed and called from BOOT and MAIN. These modules can be compiled through even though BOOT and MAIN are not. This is straighforward but managing shared GLOBAL variables between BOOT and MAIN when using IMPORTED modules presented a bit of a challenge. For those who do not know, GLOBAL variables are shared between BOOT and MAIN in Micropython which allows data to be passed from one to the other. An example is IP address if BOOT makes the WiFi connection. The challenge is that GLOBAL variables are not accessble to IMPORTed modules. This means they need to be passed and returned in the calls.
 
 ## EXAMPLE
 
@@ -29,9 +31,8 @@ ip_addr=boot_display()
 ```
 Note that the value for the GLOBAL variable BOOT_OK must come back as a returned value.
 
-BOOT_DISPLAY.PY looks like this
+BOOT_DISPLAY.PY looks like this. It would be cross compiled to BOOT_DISPLAY.MPY for deployment
 ```
-
 # boot_display - Main Code of Boot that can be compiled to .MPY
 # This is specific to Micropython
 
@@ -59,7 +60,7 @@ global ip_addr          # Set in BOOT.PY+BOOT_DISPLAY.PY
 
 main_display(ip_addr)   # Need to pass as variable
 ```
-Finally, MAIN_DISPLAY looks like this.
+Finally, MAIN_DISPLAY.PY looks like this. It would be cross compiled to MAIN_DISPLAY.MPY for deployment.
 ```
 # main_display.py - Main program that can be compiled to .MPY
 # This is specific to Micropython
