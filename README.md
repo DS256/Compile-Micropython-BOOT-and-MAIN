@@ -49,7 +49,7 @@ After BOOT is run, you should be able to see the following in the SHELL window
 >>> ip_addr
 '192.168.1.42'
 ```
-Next MAIN.PY is automatically run. Note, we have to pass BOOT_OK to MAIN_DISPLAY()
+Next MAIN.PY is automatically run. Note, we have to pass IP_ADDR to MAIN_DISPLAY()
 ```
 # main.py - to call compiled main_display.mpy
 # This is specific to Micropythons
