@@ -14,7 +14,7 @@ Modules can be IMPORTed and called from BOOT and MAIN. These modules can be comp
 
 The following is code that should work on a PICO W running Micropython.
 
-When RESET, BOOT.PY is run. This declares the GLOBAL variable BOOT_OK and calls the compiled program BOOT_DISPLAY().
+When RESET, BOOT.PY is run. This declares the GLOBAL variable IP_ADDR and calls the compiled program BOOT_DISPLAY().
 ```
 # boot.py - to call compiled boot_display.mpy
 # This is specific to Micropython
