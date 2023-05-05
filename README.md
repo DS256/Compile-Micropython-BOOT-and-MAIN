@@ -29,7 +29,7 @@ global ip_addr
 
 ip_addr=boot_display() 
 ```
-Note that the value for the GLOBAL variable BOOT_OK must come back as a returned value.
+Note that the value for the GLOBAL variable IP_ADDR must come back as a returned value.
 
 BOOT_DISPLAY.PY looks like this. It would be cross compiled to BOOT_DISPLAY.MPY for deployment
 ```
